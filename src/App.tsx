@@ -1,9 +1,29 @@
-
+import StartPageDocumentsSvg from './assets/start_page_documents.svg'
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      pc paggx
-    </h1>
+    <div className='h-screen flex flex-col justify-center items-center'>
+      <div className='px-7 flex flex-col items-center'>
+        <div className='flex w-full flex-col gap-6 items-start'>
+          <div className='font-semibold text-2xl'>
+            Iniciar
+          </div>
+          <div>
+            Necessitamos de algumas informações para nos auxiliar a confirmar a sua identidade.
+          </div>
+        </div>
+        <img className="size-60" src={StartPageDocumentsSvg} alt="main_svg" />
+        <div className='flex flex-col gap-6'>
+          <div className='text-xs font-extralight'>
+            Ao clicar no botão abaixo, você concorda que a Persona, nosso fornecedor, colete, faça uso e utilize seus provedores de serviços para processar suas informações biométricas para verificar sua identidade, identificar fraudes e melhorar a plataforma da Persona de acordo com sua <a className='text-blue-700 underline' href="https://withpersona.com/legal/privacy-policy">Política de Privacidade.</a> Suas informações biométricas serão armazenadas por no máximo 3 anos.
+          </div>
+          <button className='bg-indigo-700 text-white w-full h-12 font-semibold transition-transform transform hover:-translate-y-1'>Iniciar Verificação</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
   )
 }
 
