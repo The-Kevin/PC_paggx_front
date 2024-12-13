@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import GoToBack from '../assets/icons/back.svg'
 import { ChooseButton } from '../components/chooseButton'
-import axios from 'axios'
 import { useState, useEffect } from 'react'
+import AxiosInstance from '../services/axios'
 
 interface IIdentificationType {
     id: string,
@@ -17,7 +17,7 @@ export function Identification() {
     const navigate = useNavigate()
     const [identificationTypes, setIdentificationTypes] = useState<IIdentificationType[] | null>(null)
     useEffect(() => {
-        axios.get('http://localhost:3000/indentification/type').then(({ data }) => {
+        AxiosInstance.get('/indentification/type').then(({ data }) => {
             setIdentificationTypes(data)
         })
     }, [])
