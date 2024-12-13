@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/' element={<App />} />
       <Route path='identification'>
         <Route path='' element={<Identification />} />
-        <Route path=':type' element={<IdentificationType />} />
+        <Route path='type' element={<IdentificationType />} />
       </Route>
 
     </Routes>

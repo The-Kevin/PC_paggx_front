@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import GoToBack from '../assets/icons/back.svg'
 import { ChooseButton } from '../components/chooseButton'
 import axios from 'axios'
@@ -14,8 +14,8 @@ interface IIdentificationType {
 
 export function Identification() {
 
+    const navigate = useNavigate()
     const [identificationTypes, setIdentificationTypes] = useState<IIdentificationType[] | null>(null)
-
     useEffect(() => {
         axios.get('http://localhost:3000/indentification/type').then(({ data }) => {
             setIdentificationTypes(data)
@@ -43,9 +43,18 @@ export function Identification() {
                 {
                     identificationTypes && identificationTypes.map((type, index) => {
                         return (
-                            <Link key={type.id} to="" className={`flex w-full py-4 justify-center border-b-[1px] ${index === 0 ? 'border-t-[1px]' : ''} border-black  hover:bg-slate-100" to="/identification/cnh`}>
+                            <div
+                                onClick={() => navigate('/identification/type', {
+                                    state: {
+                                        title: type.pageTitle,
+                                        imageLink: type.pageImageCardLink
+                                    }
+                                })}
+                                key={type.id} className={`flex w-full py-4 justify-center border-b-[1px]
+                                ${index === 0 ? 'border-t-[1px]' : ''} border-black hover:bg-slate-100`}>
+
                                 <ChooseButton name={type.name} imageAlt={type.name} imageUrl={type.imageIconLink} />
-                            </Link>
+                            </div>
                         )
                     })
                 }
@@ -54,5 +63,4 @@ export function Identification() {
         </div>
 
     )
-
 }
