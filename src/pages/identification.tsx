@@ -1,14 +1,27 @@
 import { Link } from 'react-router-dom'
 import GoToBack from '../assets/icons/back.svg'
-import CNH from '../assets/icons/cnh.svg'
-import Passport from '../assets/icons/passport.svg'
-import CID from '../assets/icons/c_id.svg'
-import Residence_permit from '../assets/icons/residence_permit.svg'
-import Next from '../assets/icons/next.svg'
-import { DiviseLine } from '../components/atoms/diviseLine'
+import { ChooseButton } from '../components/chooseButton'
+import axios from 'axios'
+import { useState, useEffect } from 'react'
 
+interface IIdentificationType {
+    id: string,
+    name: string,
+    imageIconLink: string,
+    pageTitle: string,
+    pageImageCardLink: string
+}
 
 export function Identification() {
+
+    const [identificationTypes, setIdentificationTypes] = useState<IIdentificationType[] | null>(null)
+
+    useEffect(() => {
+        axios.get('http://localhost:3000/indentification/type').then(({ data }) => {
+            setIdentificationTypes(data)
+        })
+    }, [])
+
     return (
         <div>
             <div className='flex flex-col justify-center  gap-5 p-7'>
@@ -26,40 +39,16 @@ export function Identification() {
                 </div>
 
             </div >
-            <div className='flex flex-col items-center gap-3'>
-                <DiviseLine />
-                <div className='flex w-full justify-between px-10'>
-                    <div className='flex items-center gap-4'>
-                        <img src={CNH} alt="cnh" />
-                        <span>CNH</span>
-                    </div>
-                    <img src={Next} alt="next" />
-                </div>
-                <DiviseLine />
-                <div className='flex w-full justify-between px-10'>
-                    <div className='flex items-center gap-4'>
-                        <img src={CID} alt="card id" />
-                        <span>Carteira de Identidade</span>
-                    </div>
-                    <img src={Next} alt="next" />
-                </div>
-                <DiviseLine />
-                <div className='flex w-full justify-between px-10'>
-                    <div className='flex items-center gap-4'>
-                        <img src={Passport} alt="passport" />
-                        <span>Passaporte</span>
-                    </div>
-                    <img src={Next} alt="next" />
-                </div>
-                <DiviseLine />
-                <div className='flex w-full justify-between px-10'>
-                    <div className='flex items-center gap-4'>
-                        <img src={Residence_permit} alt="residence permit" />
-                        <span>Autorização de Residência</span>
-                    </div>
-                    <img src={Next} alt="next" />
-                </div>
-                <DiviseLine />
+            <div className='flex flex-col items-center'>
+                {
+                    identificationTypes && identificationTypes.map((type, index) => {
+                        return (
+                            <Link key={type.id} to="" className={`flex w-full py-4 justify-center border-b-[1px] ${index === 0 ? 'border-t-[1px]' : ''} border-black  hover:bg-slate-100" to="/identification/cnh`}>
+                                <ChooseButton name={type.name} imageAlt={type.name} imageUrl={type.imageIconLink} />
+                            </Link>
+                        )
+                    })
+                }
             </div>
 
         </div>
