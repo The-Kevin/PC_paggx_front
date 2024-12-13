@@ -1,18 +1,16 @@
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { Button } from '../components/button'
 import Cam from '../assets/icons/cam.svg'
-import GoToBack from '../assets/icons/back.svg'
+import { BackButton } from '../components/atoms/backButton'
 
-export function IdentificationType() {
+export function IdentificationChoose() {
 
     const props = useLocation()
 
     return (
         <div className='flex flex-col justify-center items-center p-7 gap-5'>
             <div className='flex flex-col gap-10 self-start'>
-                <Link to='/identification' className=''>
-                    <img src={GoToBack} alt="back_icon" />
-                </Link>
+                <BackButton to='/identification' />
                 <div className='text-3xl font-semibold'>{props.state.title}</div>
             </div>
 

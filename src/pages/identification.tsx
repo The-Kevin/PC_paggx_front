@@ -1,8 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom'
-import GoToBack from '../assets/icons/back.svg'
+import { useNavigate } from 'react-router-dom'
 import { ChooseButton } from '../components/chooseButton'
 import { useState, useEffect } from 'react'
 import AxiosInstance from '../services/axios'
+import { BackButton } from '../components/atoms/backButton'
 
 interface IIdentificationType {
     id: string,
@@ -23,11 +23,9 @@ export function Identification() {
     }, [])
 
     return (
-        <div>
+        <div className='flex flex-col justify-center'>
             <div className='flex flex-col justify-center  gap-5 p-7'>
-                <Link to='/' className=''>
-                    <img src={GoToBack} alt="back_icon" />
-                </Link>
+                <BackButton to='/' />
                 <div className="text-2xl font-semibold" >
                     Carregar uma identificação com foto
                 </div>

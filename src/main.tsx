@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { Identification } from './pages/identification.tsx'
-import { IdentificationType } from './pages/IdentificationType.tsx'
+import { IdentificationChoose } from './pages/identificationChoose.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -11,7 +11,7 @@ createRoot(document.getElementById('root')!).render(
       <Route path='/' element={<App />} />
       <Route path='identification'>
         <Route path='' element={<Identification />} />
-        <Route path='type' element={<IdentificationType />} />
+        <Route path='type' element={<IdentificationChoose />} />
       </Route>
 
     </Routes>
