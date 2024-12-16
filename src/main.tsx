@@ -4,6 +4,8 @@ import './index.css'
 import App from './App.tsx'
 import { Identification } from './pages/identification.tsx'
 import { IdentificationChoose } from './pages/identificationChoose.tsx'
+import { Capture } from './pages/capture.tsx'
+import { LoadingDocuments } from './pages/loadingDocuments.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -12,6 +14,8 @@ createRoot(document.getElementById('root')!).render(
       <Route path='identification'>
         <Route path='' element={<Identification />} />
         <Route path='type' element={<IdentificationChoose />} />
+        <Route path='capture' element={<Capture />} />
+        <Route path='loading_documents' element={<LoadingDocuments />} />
       </Route>
 
     </Routes>
