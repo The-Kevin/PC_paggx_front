@@ -4,7 +4,7 @@ import { tv } from 'tailwind-variants';
 interface ButtonProps extends ComponentProps<'button'> {
     children?: ReactNode,
     variants?: {
-        color?: "primary" | "disabled" | "secundary",
+        color?: "primary" | "secundary" | "tertiary" | "quaternary" | "disabled",
         size?: "md"
     }
 }
@@ -15,6 +15,8 @@ const button = tv({
         color: {
             primary: "bg-indigo-700 text-white",
             secundary: "bg-white text-indigo-700 border-indigo-700 border-2",
+            tertiary: "bg-white rounded-full",
+            quaternary: "bg-black rounded-full border-white border-2 text-white",
             disabled: "bg-gray-500 text-white"
         },
         size: {

@@ -1,10 +1,11 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Button } from '../components/button'
 import Cam from '../assets/icons/cam.svg'
 import { BackButton } from '../components/atoms/backButton'
 
 export function IdentificationChoose() {
 
+    const navigate = useNavigate()
     const props = useLocation()
 
     return (
@@ -19,7 +20,11 @@ export function IdentificationChoose() {
                 <img className='size-2/6' src={props.state.imageLink} alt="document image" />
             </div>
 
-            <Button>
+            <Button onClick={() => navigate('/identification/capture', {
+                state: {
+                    identificationTypeId: props.state.identificationTypeId
+                }
+            })}>
                 <img src={Cam} alt="cam icon" />
             </Button>
             <Button variants={({ color: 'secundary' })}>

@@ -17,7 +17,7 @@ export function Identification() {
     const navigate = useNavigate()
     const [identificationTypes, setIdentificationTypes] = useState<IIdentificationType[] | null>(null)
     useEffect(() => {
-        AxiosInstance.get('/indentification/type').then(({ data }) => {
+        AxiosInstance.get('/identification/type').then(({ data }) => {
             setIdentificationTypes(data)
         })
     }, [])
@@ -45,7 +45,8 @@ export function Identification() {
                                 onClick={() => navigate('/identification/type', {
                                     state: {
                                         title: type.pageTitle,
-                                        imageLink: type.pageImageCardLink
+                                        imageLink: type.pageImageCardLink,
+                                        identificationTypeId: type.id
                                     }
                                 })}
                                 key={type.id} className={`flex w-full py-4 justify-center border-b-[1px]
