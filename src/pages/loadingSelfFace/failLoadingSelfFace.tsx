@@ -15,7 +15,7 @@ export function FailLoadingSelfFace() {
                     <img className="max-h-20 " src={SadFaceId} alt="face id" />
                 </div>
                 <div className='font-extralight py-5'>Certifique-se de que a sua face é visível e bem iluminada.</div>
-                <Button onClick={() => navigate('/identification/loading_self', {
+                <Button onClick={() => navigate('/identification/capture_self', {
                     state
                 })}>
                     Continuar
