@@ -11,6 +11,7 @@ import { ValidateSelfFace } from './pages/validateSelfFace.tsx'
 import { CaptureSelfFace } from './pages/captureSelfFace.tsx'
 import { LoadingSelfFace } from './pages/loadingSelfFace/loadingSelfFace.tsx'
 import { Success } from './pages/success.tsx'
+import { FailLoadingSelfFace } from './pages/loadingSelfFace/failLoadingSelfFace.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <BrowserRouter>
@@ -25,6 +26,7 @@ createRoot(document.getElementById('root')!).render(
         <Route path='validate_self' element={<ValidateSelfFace />} />
         <Route path='capture_self' element={<CaptureSelfFace />} />
         <Route path='loading_self' element={<LoadingSelfFace />} />
+        <Route path='fail_loading_self' element={<FailLoadingSelfFace />} />
         <Route path='success' element={<Success />} />
       </Route>
 

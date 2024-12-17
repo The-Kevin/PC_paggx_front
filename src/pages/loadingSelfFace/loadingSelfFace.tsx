@@ -13,6 +13,7 @@ export function LoadingSelfFace() {
     } = useLocation().state
 
     const navigate = useNavigate()
+    const { state } = useLocation()
 
     useEffect(() => {
         const formData = new FormData()
@@ -24,7 +25,9 @@ export function LoadingSelfFace() {
 
         AxiosInstance.post('/upload/self', formData).then(response => {
             if (response.status !== 200) {
-                navigate('/identification/fail_loading_self')
+                navigate('/identification/fail_loading_self', {
+                    state
+                })
             }
             navigate('/identification/success', {
                 state: {
@@ -32,12 +35,15 @@ export function LoadingSelfFace() {
                 }
             })
         }).catch((_) => {
-            navigate('/identification/fail_loading_self')
+            navigate('/identification/fail_loading_self', {
+                state
+            })
         })
     }, [])
+
     return (
         <div className='h-screen flex flex-col '>
-            <div className='flex flex-col items-center px-7 '>
+            <div className='flex flex-col items-center px-7 justify-center h-4/6'>
                 <div className='h-1/2 flex flex-col justify-center items-center gap-7'>
                     <h1 className='font-semibold text-3xl w-full '>
                         Processamento de identificação

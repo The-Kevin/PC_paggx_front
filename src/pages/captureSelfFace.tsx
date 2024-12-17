@@ -18,9 +18,9 @@ export function CaptureSelfFace() {
     const [thirdImage, setThirdImage] = useState<Blob | undefined | null>(undefined);
 
     useEffect(() => { // fake delay to simulate IA
-        setTimeout(() => setIsCaptured(false), 2000)
+        const timer = setTimeout(() => setIsCaptured(false), 2000)
+        return () => clearTimeout(timer)
     }, [isCaptured])
-
 
 
     function nextPhoto() {
@@ -35,9 +35,6 @@ export function CaptureSelfFace() {
         }
         if (!thirdImage) {
             setThirdImage(base64ToBlob(currentImageRef?.current?.getScreenshot()!))
-        }
-
-        if (firstImage && secondImage && thirdImage) {
             navigate('/identification/loading_self', {
                 state: {
                     ...state,
@@ -46,7 +43,6 @@ export function CaptureSelfFace() {
                     thirdImage
                 }
             })
-
         }
     }
 

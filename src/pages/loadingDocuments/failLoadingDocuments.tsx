@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 export function FailLoadingDocuments() {
 
     const navigate = useNavigate()
+
     return (
         <div className='h-screen px-7 flex justify-center'>
             <div className='flex flex-col gap-5 justify-center h-2/3'>
