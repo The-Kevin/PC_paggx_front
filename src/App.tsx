@@ -3,9 +3,11 @@ import StartPageDocumentsSvg from './assets/start_page_documents.svg'
 import { Button } from './components/button'
 import LoadingDots from './components/atoms/loadingDots'
 import { Link } from 'react-router-dom'
+
 function App() {
 
   const [isLoading, setIsLoading] = useState(false)
+
 
   return (
     <div className='h-screen flex flex-col justify-center items-center'>

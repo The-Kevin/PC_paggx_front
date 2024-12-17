@@ -20,7 +20,7 @@ export function IdentificationChoose() {
                 <img className='size-2/6' src={props.state.imageLink} alt="document image" />
             </div>
 
-            <Button onClick={() => navigate('/identification/capture', {
+            <Button onClick={() => navigate('/identification/capture_documents', {
                 state: {
                     identificationTypeId: props.state.identificationTypeId
                 }

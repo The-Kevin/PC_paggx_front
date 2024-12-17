@@ -7,7 +7,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { DocumentCaptureCam } from '../components/documentCaptureCam';
 import { BackButton } from '../components/atoms/backButton';
 
-export function Capture() {
+export function CaptureDocuments() {
 
     const props = useLocation()
     const navigate = useNavigate()
@@ -47,7 +47,6 @@ export function Capture() {
                 }
             })
         }
-
     }
 
     return (
@@ -91,7 +90,6 @@ export function Capture() {
                     )
                 }
             </div>
-
         </div >
     )
 }
