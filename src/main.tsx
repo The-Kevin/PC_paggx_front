@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route, HashRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { Identification } from './pages/identification.tsx'
@@ -14,7 +14,7 @@ import { Success } from './pages/success.tsx'
 import { FailLoadingSelfFace } from './pages/loadingSelfFace/failLoadingSelfFace.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
+  <HashRouter>
     <Routes>
       <Route path='/' element={<App />} />
       <Route path='identification'>
@@ -31,5 +31,5 @@ createRoot(document.getElementById('root')!).render(
       </Route>
 
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 )
